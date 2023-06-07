@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import useLocalStorage from "./Hooks/useLocalStorage";
 import "./App.scss";
-import { TaskForm, TaskList } from "./Components";
+import { TaskForm, TaskList, GMap, Rmap } from "./Components";
 
 function App() {
   const [tasks, setTasks] = useLocalStorage("todo.tasks", []);
@@ -80,13 +80,13 @@ function App() {
   //     setDone(filteredDone);
   //   }
   // }, [showFinished, finishedTasks, tasks]);
-  useEffect(() => {
-    if (showFinished) {
-      let clone = tasks.slice();
-    } else {
-      let clone = finishedTasks.slice();
-    }
-  }, [tasks, finishedTasks, showFinished]);
+  // useEffect(() => {
+  //   if (showFinished) {
+  //     let clone = tasks.slice();
+  //   } else {
+  //     let clone = finishedTasks.slice();
+  //   }
+  // }, [tasks, finishedTasks, showFinished]);
 
   return (
     <div className="intro_display">
@@ -137,6 +137,10 @@ function App() {
           )}
         </div>
         {showDone && !showFinished ? <TaskForm addTask={addTask} /> : ""}
+      </div>
+      {/* {<GMap/>} */}
+      <div className="map">
+        <Rmap/>
       </div>
     </div>
   );

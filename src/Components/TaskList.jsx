@@ -4,7 +4,6 @@ const TaskList = ({ tasks, toggleCheckmark, deleteTask, inDeleted, showDone, und
     let filteredTasks = tasks;
     if (!showFinished) {
       filteredTasks = filteredTasks.filter(task => task.checked !== showDone);
-      filteredTasks = filteredTasks.filter(t => t.checked != showDone)
     }
   return (
     <ul className="tasks">
